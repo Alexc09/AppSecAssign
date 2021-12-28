@@ -1,0 +1,39 @@
+﻿@page
+@using AspNetCore.ReCaptcha
+@model AppSecAssign1.Pages.LoginModel
+@{
+}
+
+@Html.ReCaptcha(language: "en-GB")
+<form asp-action="Login">
+    <div class="field is-horizontal">
+
+        <div class="field-body">
+            <div class="field">
+                <label class="label">Email Address</label>
+                <div class="control">
+                    <input class="input" type="text" asp-for="email" placeholder="Email" />
+                </div>
+                <span class="text-danger" asp-validation-for="email"></span>
+            </div>
+        </div>
+
+        <div class="field-body">
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                    <input class="input" type="password" asp-for="password" placeholder="Password" />
+                </div>
+                <span class="text-danger" asp-validation-for="password"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="control">
+        <button class="button is-primary">Submit</button>
+    </div>
+
+    <p class="text-danger">@Model.message</p>
+
+</form>

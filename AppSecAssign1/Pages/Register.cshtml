@@ -1,0 +1,110 @@
+﻿@page
+@using AspNetCore.ReCaptcha
+@model AppSecAssign1.Pages.RegisterModel
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+}
+
+@{
+}
+
+@Html.ReCaptcha(language: "en-GB")
+<form asp-action="Register" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <div class="field is-horizontal">
+
+        <div class="field-body">
+            <div class="field">
+                <label class="label">First Name</label>
+                <div class="control">
+                    <input class="input" type="text" asp-for="user.FirstName" placeholder="First Name" />
+                </div>
+                <span class="text-danger" asp-validation-for="user.FirstName"></span>
+            </div>
+        </div>
+
+        <div class="field-body">
+            <div class="field">
+                <label class="label">Last Name</label>
+                <div class="control">
+                    <input class="input" type="text" asp-for="user.LastName" placeholder="Last Name" />
+                </div>
+                <span class="text-danger" asp-validation-for="user.LastName"></span>
+            </div>
+        </div>
+
+        <div class="field-body">
+            <div class="field">
+                <label class="label">Email Address</label>
+                <div class="control">
+                    <input class="input" type="text" asp-for="user.Email" placeholder="Email" />
+                </div>
+                <span class="text-danger" asp-validation-for="user.Email"></span>
+            </div>
+        </div>
+
+        <div class="field-body">
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                    <input class="input" type="password" asp-for="user.Password" placeholder="Password" />
+                </div>
+                <span class="text-danger" asp-validation-for="user.Password"></span>
+            </div>
+        </div>
+
+        <div class="field-body">
+            <div class="field">
+                <label class="label">Date of Birth</label>
+                <div class="control">
+                    <input class="input" type="date" asp-for="user.DOB" />
+                </div>
+                <span class="text-danger" asp-validation-for="user.DOB"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Profile Image</label>
+            <input type="file" class="form-control-file" asp-for="@Model.image" accept="image/*">
+            <span class="text-danger" asp-validation-for="@Model.image"></span>
+        </div>
+
+        <div class="field-body">
+            <div class="field">
+                <label class="label">Credit Card Number</label>
+                <div class="control">
+                    <input class="input" type="text" asp-for="user.CardNumber" placeholder="Credit Card Number" maxlength="19" />
+                </div>
+            </div>
+            <span class="text-danger" asp-validation-for="user.CardNumber"></span>
+        </div>
+
+        <div class="field-body">
+            <div class="field">
+                <label class="label">Expiration</label>
+                <div class="control">
+                    <input class="input" type="text" asp-for="user.CardExpiry" maxlength="4" placeholder="MMYY" />
+                </div>
+            </div>
+            <span class="text-danger" asp-validation-for="user.CardExpiry"></span>
+        </div>
+
+        <div class="field-body">
+            <div class="field">
+                <label class="label">Security Code (CVV)</label>
+                <div class="control">
+                    <input class="input" type="text" asp-for="user.CardCVV" placeholder="CVV" />
+                </div>
+            </div>
+            <span class="text-danger" asp-validation-for="user.CardCVV"></span>
+        </div>
+
+    </div>
+
+    <div class="control">
+        <button class="button is-primary">Submit</button>
+    </div>
+</form>

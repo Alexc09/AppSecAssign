@@ -1,0 +1,4 @@
+AppSecAssign1/Database/
+**/bin
+.vs/
+AppSecAssign1/appsettings.json

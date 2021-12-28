@@ -1,0 +1,30 @@
+﻿@page
+@using AspNetCore.ReCaptcha
+
+@model AppSecAssign1.Pages.OTPModel
+@{
+}
+
+
+@Html.ReCaptcha(language: "en-GB")
+<form asp-action="OTP">
+    <div class="field is-horizontal">
+
+        <div class="field-body">
+            <div class="field">
+                <label class="label">OTP</label>
+                <div class="control">
+                    <input class="input" type="text" asp-for="OTP" placeholder="OTP" />
+                </div>
+                <span class="text-danger" asp-validation-for="OTP"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="control">
+        <button class="button is-primary">Submit</button>
+    </div>
+
+    <p class="text-danger">@Model.message</p>
+
+</form>

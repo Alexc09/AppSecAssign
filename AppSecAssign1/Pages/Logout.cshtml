@@ -1,0 +1,16 @@
+﻿@page
+@model AppSecAssign1.Pages.LogoutModel
+@{
+}
+
+<a asp-page="ResetPassword">Reset Password</a>
+
+<form method="post">
+    <input type="submit" value="Logout"/>
+</form>
+
+<p>Welcome, @Model.user.FirstName</p>
+<p>@Model.encCardNum</p>
+<p>@Model.decCardNum</p>
+
+<img src="~/uploads/@Model.imgName" />
